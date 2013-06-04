@@ -50,6 +50,7 @@ inline packer<Stream>& operator<<(
     packer<Stream>& o,
     const jubatus::util::data::unordered_map<K, V, H, E, A>& v) {
   o.pack_map(v.size());
+  // REVIEW: std::tr1 should be replaced with pfi::data
   for (typename std::tr1::unordered_map<K, V, H, E, A>::const_iterator
            it = v.begin(); it != v.end(); ++it) {
     o.pack(it->first);
