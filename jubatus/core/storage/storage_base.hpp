@@ -31,11 +31,13 @@ namespace jubatus {
 namespace core {
 namespace storage {
 
+// REVIEW: should be noncpyable
 class storage_base {
  public:
   virtual ~storage_base() {
   }
 
+  // REVIEW: should be renamed or redesigned
   virtual void get(const std::string& feature, feature_val1_t& ret) const = 0;
   virtual void get2(const std::string& feature, feature_val2_t& ret) const = 0;
   virtual void get3(const std::string& feature, feature_val3_t& ret) const = 0;
@@ -43,6 +45,7 @@ class storage_base {
   // inner product
   virtual void inp(const common::sfv_t& sfv, map_feature_val1_t& ret) const;
 
+  // REVIEW: should be redesigned?
   virtual void set(
       const std::string& feature,
       const std::string& klass,
