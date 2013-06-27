@@ -70,6 +70,7 @@ class rpc_server : public msgpack::rpc::dispatcher {
   virtual void dispatch(msgpack::rpc::request req);
 
   // synchronous method registration
+  // REVIEW: add is not readable; add_method or add_api would be better
   template<typename T> void add(
       const std::string& name,
       const jubatus::util::lang::function<T>& f);
